@@ -451,7 +451,7 @@ public class FlexUIMetadataProvider implements MetadataProvider, MetadataNotific
             try {
                 original = XmlUtils.getDocumentBuilder().parse(this.fileManager.getInputStream(mxmlFilename));
             } catch (Exception e) {
-                new IllegalStateException("Could not parse file: " + mxmlFilename);
+                throw new IllegalStateException("Could not parse file: " + mxmlFilename);
             }
             Assert.notNull(original, "Unable to parse " + mxmlFilename);
             if (MxmlRoundTripUtils.compareDocuments(original, proposed)) { // TODO - need to actually implement the

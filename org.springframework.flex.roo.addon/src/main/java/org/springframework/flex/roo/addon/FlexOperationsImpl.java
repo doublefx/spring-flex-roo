@@ -254,7 +254,7 @@ public class FlexOperationsImpl implements FlexOperations {
             FileCopyUtils.copy(TemplateUtils.getTemplate(getClass(), "services-config-template.xml"),
                 this.fileManager.createFile(getPathResolver().getIdentifier(Path.SRC_MAIN_WEBAPP, servicesConfigFilename)).getOutputStream());
         } catch (IOException e) {
-            new IllegalStateException("Encountered an error during copying of resources for maven addon.", e);
+            throw new IllegalStateException("Encountered an error during copying of resources for maven addon.", e);
         }
         
         fileManager.scan();
@@ -492,7 +492,7 @@ public class FlexOperationsImpl implements FlexOperations {
                 try {
                     FileCopyUtils.copy(url.openStream(), this.fileManager.createFile(targetDirectory + fileName).getOutputStream());
                 } catch (IOException e) {
-                    new IllegalStateException("Encountered an error during copying of resources for Flex addon.", e);
+                    throw new IllegalStateException("Encountered an error during copying of resources for Flex addon.", e);
                 }
             }
         }

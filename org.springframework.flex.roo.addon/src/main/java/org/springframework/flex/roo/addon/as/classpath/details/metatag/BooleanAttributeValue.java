@@ -38,6 +38,6 @@ public class BooleanAttributeValue extends AbstractMetaTagAttributeValue<Boolean
 
     @Override
     public String toString() {
-        return getName() + " -> " + new Boolean(this.value).toString();
+        return getName() + " -> " + Boolean.valueOf(this.value).toString();
     }
 }
